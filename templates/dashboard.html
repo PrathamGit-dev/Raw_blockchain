@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome  {{session['username']}}</h1>
+    <a href= "/transaction">Make a transaction</a>
+    <a href= "/buy">Buy some asset</a>
+    <table>
+        {% for block in blockchain %}
+        <tr>{{ block.number }}</tr>
+        <tr>{{ block.data }}</tr>
+        <tr>{{ block.hash() }}</tr>
+        {% endfor %}
+    </table>
+    <p>Updated at {{ ct }}</p>
+    <h1>
+        <a href="/logout">Log out</a>
+    </h1>
+</body>
+</html>
